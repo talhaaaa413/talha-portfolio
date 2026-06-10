@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talha Mehmood — Civil Engineer & Freelancer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#06101F;
+  --navy2:#0C1A30;
+  --navy3:#122040;
+  --gold:#C9A84C;
+  --gold2:#E8C97A;
+  --gold-dim:rgba(201,168,76,0.15);
+  --gold-line:rgba(201,168,76,0.35);
+  --white:#FFFFFF;
+  --off:#F5F2EB;
+  --text:#1A1A2E;
+  --mid:#7A8090;
+  --border:#E0DAD0;
+  --card-bg:#FFFFFF;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--text);line-height:1.65;overflow-x:hidden;}
+
+/* ── CANVAS BACKGROUND ─────────────────────────── */
+.canvas-bg{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:0;
+  overflow:hidden;
+}
+.canvas-bg canvas{display:block;width:100%;height:100%;}
+
+/* ── NAVIGATION ────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:68px;
+  background:rgba(6,16,31,0.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(201,168,76,0.12);
+  transition:background 0.3s;
+}
+.nav-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;font-size:1.45rem;
+  color:var(--gold);letter-spacing:0.04em;
+}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{
+  color:rgba(255,255,255,0.6);text-decoration:none;
+  font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;
+  transition:color 0.25s;font-weight:500;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;
+  background:var(--gold);transition:width 0.3s;
+}
+.nav-links a:hover{color:var(--gold);}
+.nav-links a:hover::after{width:100%;}
+.nav-hire{
+  background:transparent;border:1px solid var(--gold);
+  color:var(--gold);padding:0.5rem 1.4rem;
+  font-family:'Inter',sans-serif;font-size:0.72rem;
+  font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.25s;
+}
+.nav-hire:hover{background:var(--gold);color:var(--navy);}
+
+/* ── HERO ───────────────────────────────────────── */
+.hero{
+  min-height:100vh;
+  background:var(--navy);
+  display:flex;align-items:center;
+  padding:80px 6% 60px;
+  position:relative;z-index:1;
+  overflow:hidden;
+}
+.hero-geo{
+  position:absolute;right:-80px;top:50%;transform:translateY(-50%);
+  width:600px;height:600px;opacity:0.06;
+  border:1px solid var(--gold);border-radius:50%;
+  animation:rotSlow 40s linear infinite;
+}
+.hero-geo2{
+  position:absolute;right:80px;top:50%;transform:translateY(-50%);
+  width:400px;height:400px;opacity:0.04;
+  border:1px solid var(--gold);border-radius:50%;
+  animation:rotSlow 28s linear infinite reverse;
+}
+.hero-line{
+  position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent);
+}
+@keyframes rotSlow{to{transform:translateY(-50%) rotate(360deg);}}
+
+.hero-content{max-width:700px;position:relative;z-index:2;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.8rem;
+  font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;margin-bottom:1.5rem;
+}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--gold);}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,7vw,6rem);
+  color:#fff;line-height:0.95;
+  font-weight:300;margin-bottom:0.3rem;
+  animation:fadeUp 1s ease both;
+}
+.hero-name span{font-weight:600;color:var(--gold2);}
+.hero-role{
+  font-size:1rem;color:rgba(255,255,255,0.45);
+  letter-spacing:0.08em;text-transform:uppercase;font-weight:400;
+  margin-bottom:2rem;animation:fadeUp 1s 0.15s ease both;
+}
+.hero-desc{
+  font-size:1rem;color:rgba(255,255,255,0.65);
+  max-width:540px;line-height:1.85;margin-bottom:3rem;
+  animation:fadeUp 1s 0.3s ease both;
+  border-left:2px solid var(--gold);padding-left:1.2rem;
+}
+.hero-actions{display:flex;gap:1.2rem;flex-wrap:wrap;animation:fadeUp 1s 0.45s ease both;}
+.btn-gold{
+  background:var(--gold);color:var(--navy);padding:0.9rem 2.2rem;
+  border:none;font-family:'Inter',sans-serif;font-size:0.78rem;
+  font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;transition:all 0.25s;
+  display:inline-block;
+}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);}
+.btn-ghost{
+  background:transparent;color:rgba(255,255,255,0.75);
+  padding:0.9rem 2.2rem;border:1px solid rgba(255,255,255,0.2);
+  font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;transition:all 0.25s;
+  display:inline-block;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+.hero-stats{
+  position:absolute;right:6%;bottom:10%;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:rgba(201,168,76,0.15);
+  animation:fadeIn 1.2s 0.6s ease both;
+}
+.hero-stat{
+  background:rgba(6,16,31,0.9);padding:1.8rem 2rem;text-align:center;
+  border:1px solid rgba(201,168,76,0.1);
+}
+.hero-stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.6rem;color:var(--gold);font-weight:600;line-height:1;
+}
+.hero-stat-label{
+  font-size:0.65rem;color:rgba(255,255,255,0.35);
+  text-transform:uppercase;letter-spacing:0.12em;margin-top:0.3rem;
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ── SECTION BASE ───────────────────────────────── */
+section{padding:110px 6%;position:relative;z-index:1;}
+.sec-eyebrow{
+  display:inline-flex;align-items:center;gap:0.7rem;
+  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;margin-bottom:0.7rem;
+}
+.sec-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold);}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  color:var(--navy);line-height:1.15;font-weight:400;
+  margin-bottom:3.5rem;
+}
+.sec-title-light{color:#fff;}
+
+/* ── SERVICES ───────────────────────────────────── */
+#services{background:var(--navy);overflow:hidden;}
+#services .sec-title{color:#fff;}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;background:rgba(201,168,76,0.1);
+}
+.srv{
+  background:var(--navy2);padding:2.5rem 2rem;
+  transition:background 0.3s,transform 0.3s;
+  cursor:default;overflow:hidden;position:relative;
+}
+.srv::after{
+  content:'';position:absolute;
+  bottom:0;left:0;width:0;height:2px;
+  background:var(--gold);transition:width 0.4s;
+}
+.srv:hover::after{width:100%;}
+.srv:hover{background:var(--navy3);transform:translateY(-4px);}
+.srv-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;color:rgba(201,168,76,0.12);font-weight:700;
+  line-height:1;margin-bottom:1rem;
+}
+.srv-icon{font-size:1.6rem;margin-bottom:1.2rem;}
+.srv-name{font-size:0.95rem;font-weight:600;color:#fff;margin-bottom:0.7rem;}
+.srv-desc{font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.75;}
+
+/* ── EXPERIENCE ─────────────────────────────────── */
+#experience{background:#fff;}
+.exp-wrap{max-width:820px;}
+.exp-entry{
+  display:grid;grid-template-columns:200px 1fr;gap:3rem;
+  padding:2.5rem 0;border-bottom:1px solid var(--border);
+  opacity:0;transform:translateY(20px);transition:all 0.6s ease;
+}
+.exp-entry.visible{opacity:1;transform:translateY(0);}
+.exp-entry:last-child{border-bottom:none;}
+.exp-date{
+  font-size:0.72rem;color:var(--gold);font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;padding-top:0.3rem;
+}
+.exp-company{font-size:0.78rem;color:var(--mid);margin-top:0.4rem;}
+.exp-duration{
+  display:inline-block;margin-top:0.6rem;
+  font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
+  background:var(--gold-dim);color:var(--gold);
+  padding:0.2rem 0.6rem;
+}
+.exp-role{font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:1rem;}
+.exp-list{list-style:none;}
+.exp-list li{
+  font-size:0.85rem;color:#4A4E5A;line-height:1.65;
+  padding:0.35rem 0 0.35rem 1.4rem;position:relative;
+}
+.exp-list li::before{
+  content:'';position:absolute;left:0;top:0.75rem;
+  width:6px;height:6px;background:var(--gold);border-radius:50%;
+}
+
+/* ── PROJECTS ───────────────────────────────────── */
+#projects{background:var(--off);}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;}
+.proj-card{
+  background:#fff;border:1px solid var(--border);
+  overflow:hidden;
+  transition:transform 0.3s,box-shadow 0.3s;
+  opacity:0;transform:translateY(20px);
+}
+.proj-card.visible{opacity:1;transform:translateY(0);}
+.proj-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(6,16,31,0.12);
+}
+.proj-header{
+  background:var(--navy);padding:2rem;
+  position:relative;overflow:hidden;min-height:110px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.proj-header::before{
+  content:'';position:absolute;top:-20px;right:-20px;
+  width:120px;height:120px;
+  border:1px solid rgba(201,168,76,0.15);border-radius:50%;
+}
+.proj-header::after{
+  content:'';position:absolute;top:10px;right:10px;
+  width:70px;height:70px;
+  border:1px solid rgba(201,168,76,0.08);border-radius:50%;
+}
+.proj-badge{
+  position:absolute;top:1rem;right:1rem;z-index:1;
+  font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  background:var(--gold);color:var(--navy);padding:0.25rem 0.65rem;
+}
+.proj-cat{font-size:0.65rem;color:rgba(255,255,255,0.35);letter-spacing:0.14em;text-transform:uppercase;}
+.proj-body{padding:1.6rem;}
+.proj-title{font-size:0.96rem;font-weight:600;color:var(--navy);margin-bottom:0.7rem;line-height:1.4;}
+.proj-desc{font-size:0.82rem;color:var(--mid);line-height:1.72;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.2rem;}
+.ptag{
+  font-size:0.7rem;padding:0.25rem 0.65rem;
+  border:1px solid var(--border);color:var(--navy);font-weight:500;
+  background:var(--off);
+}
+
+/* ── SKILLS ─────────────────────────────────────── */
+#skills{background:#fff;}
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
+.skill-category{margin-bottom:2.5rem;}
+.skill-cat-label{
+  font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;margin-bottom:1.5rem;
+  padding-bottom:0.5rem;border-bottom:1px solid var(--border);
+}
+.skill-row{margin-bottom:1.1rem;}
+.skill-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-size:0.85rem;font-weight:500;color:var(--navy);margin-bottom:0.45rem;
+}
+.skill-head span:last-child{font-size:0.72rem;color:var(--mid);font-weight:400;}
+.skill-track{height:2px;background:var(--border);position:relative;}
+.skill-bar{
+  height:2px;background:var(--gold);
+  width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.skill-bar.lit{background:var(--navy);}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.ctag{
+  font-size:0.78rem;padding:0.4rem 0.9rem;
+  border:1px solid rgba(6,16,31,0.15);color:var(--navy);
+  transition:all 0.2s;cursor:default;
+}
+.ctag:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+/* ── EDUCATION ──────────────────────────────────── */
+#education{background:var(--navy);overflow:hidden;}
+#education .sec-title{color:#fff;}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+.edu-card{
+  padding:2.2rem;
+  border:1px solid rgba(201,168,76,0.15);
+  position:relative;overflow:hidden;
+  transition:border-color 0.3s,transform 0.3s;
+}
+.edu-card::before{
+  content:'';position:absolute;top:0;left:0;
+  width:3px;height:0;background:var(--gold);
+  transition:height 0.4s;
+}
+.edu-card:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-3px);}
+.edu-card:hover::before{height:100%;}
+.edu-year{font-size:0.7rem;color:var(--gold);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.6rem;}
+.edu-degree{font-size:1rem;font-weight:600;color:#fff;margin-bottom:0.3rem;line-height:1.3;}
+.edu-inst{font-size:0.82rem;color:rgba(255,255,255,0.45);margin-bottom:0.6rem;}
+.edu-score{font-size:0.82rem;color:rgba(255,255,255,0.7);}
+.edu-score span{color:var(--gold);font-weight:600;}
+
+/* ── CERTS ──────────────────────────────────────── */
+.certs-row{
+  display:flex;flex-wrap:wrap;gap:0.8rem;
+  margin-top:3rem;padding-top:2.5rem;
+  border-top:1px solid rgba(201,168,76,0.12);
+}
+.cert-item{
+  font-size:0.78rem;color:rgba(255,255,255,0.55);
+  padding:0.5rem 1rem;
+  border:1px solid rgba(201,168,76,0.12);
+  display:flex;align-items:center;gap:0.5rem;
+}
+.cert-item::before{
+  content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;
+}
+
+/* ── CONTACT ─────────────────────────────────────── */
+#contact{background:var(--off);}
+.contact-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start;}
+.contact-intro{font-size:0.95rem;color:var(--mid);line-height:1.85;margin-bottom:2.5rem;}
+.contact-info-item{
+  display:flex;align-items:flex-start;gap:1rem;
+  margin-bottom:1.5rem;
+}
+.ci-icon{
+  width:40px;height:40px;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;color:var(--gold);flex-shrink:0;
+}
+.ci-label{font-size:0.68rem;color:var(--mid);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.2rem;}
+.ci-val{font-size:0.9rem;color:var(--navy);font-weight:500;}
+.ci-val a{color:var(--navy);text-decoration:none;}
+.ci-val a:hover{color:var(--gold);}
+
+.contact-form-wrap{
+  background:#fff;padding:2.5rem;
+  border:1px solid var(--border);
+}
+.form-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;color:var(--navy);font-weight:600;margin-bottom:1.5rem;
+}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.cf-group{display:flex;flex-direction:column;margin-bottom:1rem;}
+.cf-group label{
+  font-size:0.7rem;color:var(--mid);text-transform:uppercase;
+  letter-spacing:0.12em;margin-bottom:0.5rem;font-weight:600;
+}
+.cf-group input,.cf-group textarea,.cf-group select{
+  background:#fff;border:1px solid var(--border);
+  padding:0.8rem 1rem;font-family:'Inter',sans-serif;
+  font-size:0.88rem;color:var(--text);outline:none;
+  transition:border-color 0.2s;
+}
+.cf-group input:focus,.cf-group textarea:focus{border-color:var(--gold);}
+.cf-group textarea{min-height:130px;resize:vertical;}
+.cf-submit{
+  width:100%;background:var(--navy);color:#fff;
+  border:none;padding:1rem;font-family:'Inter',sans-serif;
+  font-size:0.8rem;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;cursor:pointer;transition:all 0.25s;
+}
+.cf-submit:hover{background:var(--gold);color:var(--navy);}
+
+/* ── FOOTER ─────────────────────────────────────── */
+footer{
+  background:var(--navy);padding:2rem 6%;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid rgba(201,168,76,0.1);
+}
+.ft-brand{
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold);font-size:1.1rem;font-weight:600;
+}
+.ft-copy{font-size:0.75rem;color:rgba(255,255,255,0.25);}
+.ft-top{font-size:0.75rem;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.1em;}
+.ft-top:hover{color:var(--gold);}
+
+/* ── SCROLL REVEAL ───────────────────────────────── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── MOBILE ─────────────────────────────────────── */
+@media(max-width:900px){
+  .hero-stats{display:none;}
+  .hero{padding-top:100px;}
+  .skills-layout{grid-template-columns:1fr;gap:2.5rem;}
+  .contact-wrap{grid-template-columns:1fr;gap:3rem;}
+  .cf-row{grid-template-columns:1fr;}
+  .exp-entry{grid-template-columns:1fr;gap:0.5rem;}
+  .nav-links{display:none;}
+  footer{flex-direction:column;gap:0.8rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- PARTICLE CANVAS -->
+<div class="canvas-bg"><canvas id="particles"></canvas></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">TM</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:talhhha513@gmail.com" class="nav-hire">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-geo"></div>
+  <div class="hero-geo2"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Civil Engineering Freelancer</p>
+    <h1 class="hero-name">Talha<br><span>Mehmood</span></h1>
+    <p class="hero-role">B.E. Civil Engineering &nbsp;·&nbsp; NUST Islamabad</p>
+    <p class="hero-desc">
+      Structural analysis, quantity surveying, AutoCAD drafting, and project planning — engineered with precision. Based in Pakistan, available globally for remote work.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-gold">View My Work</a>
+      <a href="#contact" class="btn-ghost">Let's Collaborate</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">3.33</div>
+      <div class="hero-stat-label">CGPA at NUST</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">16+</div>
+      <div class="hero-stat-label">Weeks Site Work</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5+</div>
+      <div class="hero-stat-label">Projects Done</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">8+</div>
+      <div class="hero-stat-label">Tools Mastered</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="sec-eyebrow">What I Offer</p>
+  <h2 class="sec-title sec-title-light">Freelance Services</h2>
+  <div class="services-grid">
+    <div class="srv reveal">
+      <div class="srv-num">01</div>
+      <div class="srv-icon">📐</div>
+      <div class="srv-name">Structural Analysis & RCC Design</div>
+      <div class="srv-desc">Multi-story building modelling under gravity and seismic loads. Beam, slab, and column design using ETABS and SAP2000 with manual verification.</div>
+    </div>
+    <div class="srv reveal">
+      <div class="srv-num">02</div>
+      <div class="srv-icon">📋</div>
+      <div class="srv-name">Quantity Surveying & BOQ</div>
+      <div class="srv-desc">Accurate material take-offs, Bill of Quantities preparation, IPC monitoring, and cost estimation for construction projects of all scales.</div>
+    </div>
+    <div class="srv reveal">
+      <div class="srv-num">03</div>
+      <div class="srv-icon">🖊️</div>
+      <div class="srv-name">AutoCAD Drawings</div>
+      <div class="srv-desc">Architectural and structural drafting — floor plans, elevations, sections, RCC framing, foundation layouts, and detailed site plans.</div>
+    </div>
+    <div class="srv reveal">
+      <div class="srv-num">04</div>
+      <div class="srv-icon">📅</div>
+      <div class="srv-name">Project Planning & Scheduling</div>
+      <div class="srv-desc">Gantt charts, resource allocation, and milestone scheduling using Primavera P6 and MS Project. Progress tracking and reporting included.</div>
+    </div>
+    <div class="srv reveal">
+      <div class="srv-num">05</div>
+      <div class="srv-icon">🔍</div>
+      <div class="srv-name">QA / HSE Reviews</div>
+      <div class="srv-desc">Reinforcement placement inspection, formwork verification, concrete works monitoring, and health & safety compliance checks on site.</div>
+    </div>
+    <div class="srv reveal">
+      <div class="srv-num">06</div>
+      <div class="srv-icon">📊</div>
+      <div class="srv-name">Engineering Reports</div>
+      <div class="srv-desc">Site diary documentation, field observation notes, progress reports, and technical documentation for infrastructure and building projects.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="sec-eyebrow">Professional Background</p>
+  <h2 class="sec-title">Work Experience</h2>
+  <div class="exp-wrap">
+    <div class="exp-entry">
+      <div>
+        <div class="exp-date">2024</div>
+        <div class="exp-company">NESPAK<br>H-11 Police Line Hospital<br>Islamabad</div>
+        <div class="exp-duration">8 Weeks</div>
+      </div>
+      <div>
+        <div class="exp-role">Site Supervision Intern</div>
+        <ul class="exp-list">
+          <li>Verified formwork, shuttering, and reinforcement placement prior to all concrete pours</li>
+          <li>Documented daily construction activities and prepared comprehensive site diary reports</li>
+          <li>Inspected column and beam work, checking dimensions against approved drawings</li>
+          <li>Observed material testing processes and quality assurance procedures on site</li>
+          <li>Supported site engineers in layout marking and setting-out operations</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-entry">
+      <div>
+        <div class="exp-date">2024</div>
+        <div class="exp-company">NESPAK<br>Nespak House, Sector G-5/2<br>Islamabad</div>
+        <div class="exp-duration">8 Weeks</div>
+      </div>
+      <div>
+        <div class="exp-role">Site Supervision Intern</div>
+        <ul class="exp-list">
+          <li>Assisted in quantity take-offs and Bill of Quantities preparation for ongoing site activities</li>
+          <li>Monitored concrete works including slump testing and proper curing practices</li>
+          <li>Supported engineers in interpreting structural drawings and conducting layout marking</li>
+          <li>Inspected reinforcement placement and verified compliance with design specifications</li>
+          <li>Documented daily site progress and prepared detailed field observation notes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="sec-eyebrow">Selected Work</p>
+  <h2 class="sec-title">Research & Academic Projects</h2>
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-header">
+        <span class="proj-badge">In Progress</span>
+        <div class="proj-cat">Final Year Project — 2025</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Acid-Resistant Bamboo-Reinforced Geopolymer Concrete for Sustainable Precast Applications</div>
+        <div class="proj-desc">Developing geopolymer concrete using multi-part bamboo ash and locally sourced aggregates. Testing acid resistance under varied exposure conditions, targeting cost-effective precast solutions for KPK region infrastructure.</div>
+        <div class="proj-tags">
+          <span class="ptag">Geopolymer</span><span class="ptag">Sustainability</span><span class="ptag">Precast</span><span class="ptag">KPK</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-header">
+        <span class="proj-badge">In Progress</span>
+        <div class="proj-cat">Research Study — 2024</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Engineering Ductility in Recycled PET Filament for 3D-Printed Structural Reinforcement</div>
+        <div class="proj-desc">Investigating pyrolysis of PETG plastic to produce fibers and aggregates for concrete. Studying reactive compounding to enhance ductility and exploring pyrolysis char in lightweight concrete mix design.</div>
+        <div class="proj-tags">
+          <span class="ptag">3D Printing</span><span class="ptag">Recycling</span><span class="ptag">Smart Materials</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-cat">Academic Project — 2024</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Earthquake-Resilient Structures Using Scrap Tyre Base Isolation</div>
+        <div class="proj-desc">Designed rubber pad placement methodology at plinth level for passive base isolation. Analysed energy dissipation of scrap tyre rubber under simulated seismic loading and evaluated reduction in lateral forces.</div>
+        <div class="proj-tags">
+          <span class="ptag">Seismic Design</span><span class="ptag">Base Isolation</span><span class="ptag">Structural</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-cat">AutoCAD Drafting — 2024</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Secondary School Building Design (100-Student Capacity)</div>
+        <div class="proj-desc">Produced complete set of architectural and structural drawings including site plan, floor plans, sections, elevations, RCC framing layout, and foundation drawings. Performed full area calculations and layout optimisation.</div>
+        <div class="proj-tags">
+          <span class="ptag">AutoCAD</span><span class="ptag">Architectural</span><span class="ptag">RCC Framing</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-cat">Software Analysis — 2024</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Structural Analysis of Multi-Story RCC Building</div>
+        <div class="proj-desc">Modelled multi-story reinforced concrete building under gravity and lateral loads using ETABS and SAP2000. Designed RCC beam and slab sections using manual calculations verified against software output.</div>
+        <div class="proj-tags">
+          <span class="ptag">ETABS</span><span class="ptag">SAP2000</span><span class="ptag">RCC Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="sec-eyebrow">Technical Proficiency</p>
+  <h2 class="sec-title">Skills & Tools</h2>
+  <div class="skills-layout">
+    <div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Design & Analysis Software</div>
+        <div class="skill-row">
+          <div class="skill-head"><span>AutoCAD</span><span>Advanced</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="88"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>ETABS</span><span>Intermediate</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="65"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>SAP2000</span><span>Intermediate</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="60"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>Civil 3D</span><span>Beginner</span></div>
+          <div class="skill-track"><div class="skill-bar lit" data-w="32"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>MS Civil (MSCAD)</span><span>Beginner</span></div>
+          <div class="skill-track"><div class="skill-bar lit" data-w="32"></div></div>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Project Management Tools</div>
+        <div class="skill-row">
+          <div class="skill-head"><span>MS Excel (BOQ, Pivot)</span><span>Intermediate</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="68"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>Primavera P6</span><span>Beginner</span></div>
+          <div class="skill-track"><div class="skill-bar lit" data-w="35"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>MS Project</span><span>Beginner</span></div>
+          <div class="skill-track"><div class="skill-bar lit" data-w="35"></div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Core Engineering Competencies</div>
+        <div class="tag-cloud">
+          <span class="ctag">Structural Analysis</span>
+          <span class="ctag">RC Design</span>
+          <span class="ctag">Quantity Surveying</span>
+          <span class="ctag">Site Supervision</span>
+          <span class="ctag">Quality Assurance</span>
+          <span class="ctag">HSE Reviews</span>
+          <span class="ctag">Earthquake Design</span>
+          <span class="ctag">Sustainable Construction</span>
+          <span class="ctag">Surveying & Leveling</span>
+          <span class="ctag">IPC Monitoring</span>
+          <span class="ctag">Progress Reporting</span>
+          <span class="ctag">People Management</span>
+        </div>
+      </div>
+      <div class="skill-category" style="margin-top:2.5rem;">
+        <div class="skill-cat-label">Personal Attributes</div>
+        <div class="tag-cloud">
+          <span class="ctag">Problem Solving</span>
+          <span class="ctag">Leadership</span>
+          <span class="ctag">Attention to Detail</span>
+          <span class="ctag">Communication</span>
+          <span class="ctag">Time Management</span>
+          <span class="ctag">Logical Thinker</span>
+          <span class="ctag">Pro-active</span>
+          <span class="ctag">Safety Conscious</span>
+        </div>
+      </div>
+      <div class="skill-category" style="margin-top:2.5rem;">
+        <div class="skill-cat-label">Languages</div>
+        <div class="tag-cloud">
+          <span class="ctag">Urdu — Native</span>
+          <span class="ctag">Pashto — Native</span>
+          <span class="ctag">English — Professional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="sec-eyebrow">Academic Background</p>
+  <h2 class="sec-title sec-title-light">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-year">2023 — 2027 (Expected)</div>
+      <div class="edu-degree">B.E. Civil Engineering</div>
+      <div class="edu-inst">National University of Sciences & Technology (NUST), Islamabad</div>
+      <div class="edu-score">CGPA: <span>3.33 / 4.00</span> &nbsp;·&nbsp; 3rd Year, 6th Semester</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-year">2023</div>
+      <div class="edu-degree">FSc Pre-Engineering</div>
+      <div class="edu-inst">Islamia College Peshawar</div>
+      <div class="edu-score">Marks: <span>941 / 1100</span></div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-year">2021</div>
+      <div class="edu-degree">Secondary School Certificate (Matric)</div>
+      <div class="edu-inst">Quaid International Model School, Lahor Swabi (QIMS)</div>
+      <div class="edu-score">Marks: <span>1084 / 1100</span></div>
+    </div>
+  </div>
+  <div class="certs-row">
+    <div class="cert-item">Certificate of Participation — NUST Sports Media Club</div>
+    <div class="cert-item">Sports Certificate — QIMS School</div>
+    <div class="cert-item">Volunteer Service Certificate — Chadar Club</div>
+    <div class="cert-item">Strong Academic Performance — CGPA 3.33 at NUST</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="sec-eyebrow">Let's Work Together</p>
+  <h2 class="sec-title">Get in Touch</h2>
+  <div class="contact-wrap">
+    <div>
+      <p class="contact-intro">Looking for precise structural analysis, AutoCAD drawings, quantity surveying, or project scheduling? I'm available for freelance work — remote or on-site.</p>
+      <div class="contact-info-item">
+        <div class="ci-icon">✉</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-val"><a href="mailto:talhhha513@gmail.com">talhhha513@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="ci-icon">☎</div>
+        <div>
+          <div class="ci-label">Phone / WhatsApp</div>
+          <div class="ci-val">+92 336 7342987</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Location</div>
+          <div class="ci-val">Swabi, KPK, Pakistan &nbsp;·&nbsp; Remote Available</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="ci-icon">🎓</div>
+        <div>
+          <div class="ci-label">University</div>
+          <div class="ci-val">NUST Islamabad, Civil Engineering</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrap reveal">
+      <div class="form-title">Send a Message</div>
+      <form onsubmit="submitForm(event)">
+        <div class="cf-row">
+          <div class="cf-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Full name" required>
+          </div>
+          <div class="cf-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="cf-group">
+          <label>Service Required</label>
+          <select>
+            <option>Structural Analysis / RCC Design</option>
+            <option>AutoCAD Drawings</option>
+            <option>Quantity Surveying / BOQ</option>
+            <option>Project Planning & Scheduling</option>
+            <option>QA / HSE Review</option>
+            <option>Engineering Report / Documentation</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="cf-group">
+          <label>Project Details</label>
+          <textarea placeholder="Describe your project, timeline, and requirements…"></textarea>
+        </div>
+        <button type="submit" class="cf-submit" id="submitBtn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-brand">Talha Mehmood</div>
+  <div class="ft-copy">© 2025 · Civil Engineering Freelancer · NUST Islamabad</div>
+  <a href="#home" class="ft-top">↑ Back to Top</a>
+</footer>
+
+<script>
+/* ── PARTICLE NETWORK BACKGROUND ── */
+(function(){
+  const c=document.getElementById('particles');
+  const ctx=c.getContext('2d');
+  let W,H,pts=[];
+  const N=55,CONN=130,GOLD='rgba(201,168,76,',NAVY='#06101F';
+
+  function resize(){
+    W=c.width=window.innerWidth;
+    H=c.height=window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  for(let i=0;i<N;i++){
+    pts.push({
+      x:Math.random()*1600,y:Math.random()*900,
+      vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,
+      r:Math.random()*1.5+0.8
+    });
+  }
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    const sx=W/1600,sy=H/900;
+
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>1600)p.vx*=-1;
+      if(p.y<0||p.y>900)p.vy*=-1;
+    });
+
+    for(let i=0;i<N;i++){
+      for(let j=i+1;j<N;j++){
+        const dx=(pts[i].x-pts[j].x)*sx;
+        const dy=(pts[i].y-pts[j].y)*sy;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<CONN){
+          const a=1-dist/CONN;
+          ctx.beginPath();
+          ctx.strokeStyle=GOLD+(a*0.2)+')';
+          ctx.lineWidth=0.5;
+          ctx.moveTo(pts[i].x*sx,pts[i].y*sy);
+          ctx.lineTo(pts[j].x*sx,pts[j].y*sy);
+          ctx.stroke();
+        }
+      }
+    }
+
+    pts.forEach(p=>{
+      ctx.beginPath();
+      ctx.arc(p.x*sx,p.y*sy,p.r,0,Math.PI*2);
+      ctx.fillStyle=GOLD+'0.35)';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+/* ── SCROLL REVEAL ── */
+const revealEls=document.querySelectorAll('.reveal,.exp-entry,.proj-card');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*80);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
+
+/* ── SKILL BARS ── */
+const skillBars=document.querySelectorAll('.skill-bar');
+const sio=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const w=e.target.dataset.w;
+      e.target.style.width=w+'%';
+      sio.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+skillBars.forEach(b=>sio.observe(b));
+
+/* ── CONTACT FORM ── */
+function submitForm(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='Message Sent ✓';
+  btn.style.background='#2a7a4f';
+  setTimeout(()=>{
+    btn.textContent='Send Message';
+    btn.style.background='';
+    e.target.reset();
+  },3500);
+}
+
+/* ── ACTIVE NAV ON SCROLL ── */
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY+80;
+  sections.forEach(s=>{
+    const top=s.offsetTop,h=s.offsetHeight;
+    const link=document.querySelector('.nav-links a[href="#'+s.id+'"]');
+    if(link){link.style.color=y>=top&&y<top+h?'var(--gold)':'';}
+  });
+},{ passive:true });
+</script>
+</body>
+</html>
